@@ -1,0 +1,21 @@
+#php_value display_error 1
+
+#php_flag output_buffering on
+
+RewriteEngine On
+RewriteRule   ^video/([^/.]+)/?$   watch.php?id=$1
+RewriteRule   results   results.php
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://www.hungamaplay.pk/$1 [R,L]
+RewriteRule   channel/([^/.]+)/?$   channel.php?id=$1
+RewriteRule   category/([^/.]+)/([^/.]+)/?$   cat.php?id=$1&title=$2
+RewriteRule   category/news   results.php?search_query=news
+#RewriteRule   embed   embed.php
+#ErrorDocument 404 http://hungamaplay.pk/errorPage.php
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php72” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php72___lsphp .php .php7 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
